@@ -1,0 +1,26 @@
+import pyshorteners
+
+def shorten_url(long_url):
+    try:
+        # Using TinyURL as the shortening service
+        s = pyshorteners.Shortener()
+        short_url = s.tinyurl.short(long_url)
+
+        return short_url
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+def main():
+    long_url = input("Enter the long URL: ")
+
+    # Call the function to shorten the URL
+    short_url = shorten_url(long_url)
+
+    if short_url:
+        print(f"\nShortened URL: {short_url}")
+    else:
+        print("URL shortening failed. Please check the provided URL.")
+
+if __name__ == "__main__":
+    main()
